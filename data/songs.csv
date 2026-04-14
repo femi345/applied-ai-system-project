@@ -9,3 +9,13 @@ id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
 8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
 9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
 10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
+11,Desert Highway,Cactus Wire,country,relaxed,0.55,96,0.72,0.61,0.74
+12,Neon Basement,DRKMTTR,edm,intense,0.95,140,0.60,0.92,0.03
+13,Velvet Curtain,Moonwalk Trio,r&b,romantic,0.50,88,0.78,0.70,0.45
+14,Tokyo Drift Tape,Shibuya Lights,hip-hop,moody,0.68,105,0.52,0.80,0.12
+15,Sunday Morning Hymn,Golden Strings,classical,relaxed,0.20,66,0.74,0.30,0.97
+16,Afterparty Haze,DJ Solarflare,edm,happy,0.88,128,0.82,0.91,0.04
+17,Ghost Town Blues,Rusty Chain,blues,sad,0.45,82,0.38,0.48,0.80
+18,Pixel Dreams,Bit Breaker,electronic,focused,0.62,115,0.55,0.75,0.15
+19,Campfire Nights,Timber Folk,folk,relaxed,0.30,70,0.68,0.42,0.93
+20,Rage Circuit,Voltline,metal,intense,0.97,170,0.30,0.55,0.06
