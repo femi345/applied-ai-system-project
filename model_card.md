@@ -1,91 +1,113 @@
-# Model Card: Music Recommender Simulation
+# Model Card: AI Music Recommender
 
-## 1. Model name
+## 1. Model Overview
 
-VibeFinder 1.0
+**Name:** VibeFinder 2.0 — RAG-Enhanced AI Music Recommender
 
----
-
-## 2. Intended use
-
-Suggests 5 songs from a 20-song catalog based on a user's preferred genre, mood, and energy. This is a classroom project for exploring how content-based filtering works. Not meant for real listeners.
+**Base project:** Music Recommender Simulation (CodePath AI110 Module 3). The original was a deterministic content-based recommender that scored songs using weighted attribute matching. This version adds RAG retrieval, an agentic workflow, and LLM-powered explanations.
 
 ---
 
-## 3. How it works
+## 2. Intended Use
 
-The system loops through every song and gives it a score based on how well it matches the user's taste profile. Genre match is worth the most (+2 points). Mood match gets +1. Then there are smaller bonuses for how close the song's energy, valence, and danceability are to what the user wants.
+Recommends songs from a 20-track catalog based on natural language descriptions of what the user wants to hear. Designed as a classroom project demonstrating RAG, agentic workflows, and AI reliability testing. Not intended for production music streaming.
 
-So if you say you like pop, happy, energy 0.8, a pop/happy song with energy 0.82 is going to score close to 5. A jazz/relaxed song with energy 0.37 is going to score around 1.5.
+---
 
-After every song has a score, they get sorted highest to lowest and the top 5 come back with a list of reasons (like "genre match (+2.0), energy similarity (+0.98)").
+## 3. How It Works
+
+The system runs a 6-step agentic pipeline:
+
+1. **Input Validation** — Checks for empty input, excessive length, and prompt injection patterns.
+2. **Preference Extraction** — GPT-4o-mini parses the user's natural language into structured preferences (genre, mood, energy, valence, danceability, context).
+3. **Knowledge Retrieval (RAG)** — The query is embedded using OpenAI's text-embedding-3-small model and compared against a pre-embedded knowledge base of 30 documents covering genres, moods, and listening contexts. The top 5 most relevant documents are retrieved via cosine similarity.
+4. **Algorithmic Scoring** — The original scoring algorithm ranks all 20 songs against the extracted preferences. Genre match is worth +2.0, mood match +1.0, and energy/valence/danceability similarity contribute up to +2.0 combined.
+5. **AI Enhancement** — GPT-4o-mini generates personalized explanations for the top 5 songs, using the retrieved knowledge as context. Each song gets a confidence score.
+6. **Self-Evaluation** — The agent checks genre diversity, artist diversity, average confidence, and genre match coverage, flagging issues.
 
 ---
 
 ## 4. Data
 
-The catalog has 20 songs in `data/songs.csv`. Started with 10 from the template, added 10 more to cover genres that were missing (blues, metal, folk, hip-hop, etc.).
+**Song catalog:** 20 tracks in `data/songs.csv` with attributes: genre, mood, energy (0-1), tempo_bpm, valence (0-1), danceability (0-1), acousticness (0-1). Hand-curated, skewed toward English-language Western music.
 
-Genres: pop, lofi, rock, ambient, jazz, synthwave, indie pop, country, edm, r&b, hip-hop, classical, blues, electronic, folk, metal.
-
-Moods: happy, chill, intense, relaxed, moody, focused, romantic, sad.
-
-It's all hand-picked and skews toward English-language Western music. Some genres only have a single song, which means the system can't really give variety for those.
+**Knowledge base:** 30 JSON documents across three categories:
+- `genres.json` — 16 genre descriptions (pop, lofi, rock, edm, jazz, blues, classical, hip-hop, ambient, folk, metal, r&b, synthwave, country, electronic, indie pop)
+- `moods.json` — 8 mood descriptions (happy, chill, intense, sad, focused, romantic, moody, relaxed)
+- `listening_contexts.json` — 6 context descriptions (study, workout, commute, sleep, social, creative)
 
 ---
 
 ## 5. Strengths
 
-When someone has straightforward taste ("I like pop and happy music"), the top result is basically always the obvious pick. It got Sunrise City for the pop fan, Library Rain for the lofi listener, Storm Runner for the rock fan. Hard to argue with those.
-
-The reasons list is probably the best part. You can see exactly why each song was picked and which features mattered. Nothing is hidden.
-
-It's also easy to tinker with. Change a weight, rerun, see what happens. Good for learning.
-
----
-
-## 6. Limitations and bias
-
-Genre gets 2 points out of a max of 5. That's 40% of the score from one exact string comparison. So the system will almost always rank same-genre songs first, even if a different song matches the user's vibe better on every other dimension. That's a filter bubble.
-
-With only 20 songs, some genres have one entry. The blues fan gets Ghost Town Blues at #1 every time with no alternative. Metal fans get Rage Circuit and that's it.
-
-The mood matching is rigid. "chill" and "relaxed" are different strings, so they get zero overlap. A real person would consider those almost interchangeable.
-
-There's no collaborative signal at all. It can't say "people who liked this also liked that." It only knows what one user typed in.
-
-And obviously: no lyrics, no language, no release date, no listening history. Real recommenders use all of those.
+- **Natural language input** makes the system accessible — users don't need to know what "energy: 0.8" means.
+- **Hybrid approach** (algorithmic scoring + LLM enhancement) is more reliable than pure LLM recommendations. The scorer provides consistent, explainable rankings; the LLM adds context and personality.
+- **Full transparency** — every agent step is logged and visible in the UI. Users can see exactly how their input was interpreted and why each song was chosen.
+- **Guardrails** catch malicious input before it reaches the LLM.
+- **Self-evaluation** flags low-confidence or low-diversity results.
 
 ---
 
-## 7. Evaluation
+## 6. Limitations and Bias
 
-I tested five profiles:
-
-| Profile | Top result | Makes sense? |
-|---------|-----------|------------|
-| Happy Pop Fan | Sunrise City (pop/happy) | Yeah |
-| Chill Lofi Listener | Library Rain (lofi/chill) | Yeah |
-| Intense Rock Lover | Storm Runner (rock/intense) | Yeah |
-| Sad & Acoustic | Ghost Town Blues (blues/sad) | Yeah |
-| EDM Party Goer | Afterparty Haze (edm/happy) | Yeah |
-
-I also ran an experiment where I halved the genre weight (2.0 to 1.0) and doubled energy (1.0 to 2.0). Rooftop Lights (indie pop) jumped to #2 for the pop fan profile because its energy is close to the target. That confirmed what I suspected: genre was eating everything else.
+- **Small catalog (20 songs):** Some genres have only one track, so the system can't offer variety. A user asking for metal always gets Rage Circuit.
+- **Genre dominance:** Genre match is still worth 40% of the max score. The system tends to lock users into their stated genre even when cross-genre songs might fit better.
+- **Western music bias:** The catalog and knowledge base focus on Western music genres. Non-Western genres (K-pop, Afrobeat, Bollywood, etc.) are not represented.
+- **No collaborative signal:** The system only knows what the current user said. It can't learn from patterns across users.
+- **LLM dependency:** The enhancement and preference extraction steps require API calls to OpenAI. If the API is down or the key is invalid, the system falls back to raw algorithmic results without rich explanations.
+- **Rigid mood matching:** The algorithmic scorer still uses exact string matching for moods. "Chill" and "relaxed" score differently even though users treat them as similar.
 
 ---
 
-## 8. Future work
+## 7. Potential Misuse and Mitigation
 
-- Fuzzy mood matching, so "chill" and "relaxed" aren't treated as completely different.
-- A diversity penalty that stops the same genre from dominating all 5 slots.
-- Some form of collaborative filtering, even if it's just hardcoded ("users who like lofi also tend to like ambient").
+**Could this AI be misused?**
+- **Filter bubbles:** Like any recommendation system, this could reinforce narrow taste patterns and limit musical discovery. The self-evaluation step partially addresses this by flagging low genre diversity.
+- **Prompt injection:** A malicious user could try to manipulate the LLM through crafted inputs. The guardrails block common injection patterns ("ignore previous instructions", "system prompt", etc.).
+- **Data poisoning:** If someone modified the knowledge base or song catalog with misleading information, the recommendations would be corrupted. In a production system, the knowledge base would need access controls.
+
+**Mitigations implemented:**
+- Input validation and prompt injection detection
+- Output length limits and safety checks
+- Confidence scoring that flags uncertain results
+- Diversity checking in the self-evaluation step
 
 ---
 
-## 9. Personal reflection
+## 8. Testing and Evaluation
 
-Honestly, I was surprised how "real" the results felt from such a simple system. Three rules and some addition, and it already looks like a recommendations page. That was cool but also kind of made me uneasy, because if this toy version can create a believable filter bubble, imagine what happens at Spotify's scale with hundreds of signals.
+**Unit tests:** 28 tests covering input validation, scoring logic, and recommendation ordering. All pass.
 
-Copilot was useful for brainstorming the initial scoring approach and generating the extra CSV rows. But the weights themselves, I had to adjust by hand after seeing the output. The first version I tried had genre at 3.0 and everything else was irrelevant. It took a few rounds of running the profiles and eyeballing results before the weights felt balanced.
+**Evaluation harness:** 8 automated test cases covering:
+- Genre-specific requests (pop, lofi, rock, blues, EDM) — checks that the expected genre appears in results
+- Context-driven requests (night drive + synthwave) — checks mood and genre alignment
+- Vague requests ("play me something good") — checks that the system still returns results with reasonable confidence
+- Security testing (prompt injection) — checks that malicious input is rejected
 
-The weight shift experiment was what really got me. One number change and the entire top 5 reshuffled. If that's happening in a real app, whoever decides how much genre matters vs. energy vs. mood is basically choosing what music people hear. I don't think most engineers think about it that way, but they probably should.
+**Results:**
+- 7/8 tests pass consistently. The vague request test sometimes dips below the confidence threshold since no genre is specified, which is expected behavior.
+- Average confidence: 0.78 across genre-specific tests.
+- Prompt injection correctly blocked in all runs.
+
+---
+
+## 9. Reflection on AI Collaboration
+
+**How AI was used during this project:**
+I used AI throughout development — for generating the knowledge base content, designing the agentic pipeline architecture, and writing test cases. The AI was particularly helpful for structuring the multi-step agent workflow and suggesting the hybrid scoring + LLM approach.
+
+**One instance where AI was helpful:**
+When designing the RAG retrieval system, AI suggested using cosine similarity on OpenAI embeddings rather than keyword matching. This was the right call — it means a query like "something for a late night drive" retrieves the synthwave and moody music knowledge documents even though "synthwave" doesn't appear in the query. Semantic search made the retrieval much more useful than simple keyword matching would have been.
+
+**One instance where AI was flawed:**
+AI initially suggested using GPT-4o for the preference extraction step, which would have been slow and expensive for what's essentially a structured parsing task. It also generated an overly complex prompt that tried to extract 12 different preference fields. I simplified to GPT-4o-mini and 6 fields, which was faster, cheaper, and actually more accurate because the model had fewer ambiguous fields to fill.
+
+---
+
+## 10. Future Improvements
+
+- **Larger catalog:** Expand to 100+ songs with better genre coverage.
+- **Fuzzy mood matching:** Use embedding similarity instead of exact string matching for mood in the algorithmic scorer.
+- **Diversity penalty:** Reduce scores for songs from the same genre or artist to prevent filter bubbles.
+- **User history:** Track past recommendations and preferences across sessions.
+- **Offline mode:** Cache embeddings and use a local model for preference extraction so the system works without an API key.
