@@ -1,0 +1,98 @@
+[
+  {
+    "id": "genre_pop",
+    "category": "genre",
+    "title": "Pop Music",
+    "content": "Pop music is characterized by catchy melodies, simple chord progressions, and a verse-chorus structure. It typically features high production value with polished vocals and layered instrumentation. Pop songs often have a tempo between 100-130 BPM. Listeners who enjoy pop tend to value accessibility, singability, and emotional expressiveness. Pop works well for uplifting moods, workouts, and social gatherings."
+  },
+  {
+    "id": "genre_lofi",
+    "category": "genre",
+    "title": "Lo-fi Hip Hop",
+    "content": "Lo-fi hip hop blends mellow hip hop beats with jazz and ambient textures. It features intentionally degraded audio quality — vinyl crackle, tape hiss, and warm analog distortion. Tempos usually sit between 70-90 BPM. Lo-fi is popular for studying, relaxation, and focused work because its repetitive, unobtrusive patterns create a calming background atmosphere without demanding attention."
+  },
+  {
+    "id": "genre_rock",
+    "category": "genre",
+    "title": "Rock Music",
+    "content": "Rock music is built on electric guitars, bass, drums, and vocals. It spans a wide energy range from soft acoustic ballads to aggressive hard rock. Rock typically runs 110-160 BPM. Listeners drawn to rock often appreciate raw energy, instrumental skill, and emotional intensity. Rock works well for motivation, driving, and catharsis."
+  },
+  {
+    "id": "genre_edm",
+    "category": "genre",
+    "title": "Electronic Dance Music (EDM)",
+    "content": "EDM is designed for dancing with synthesized beats, drops, and buildups. It features heavy bass, repetitive structures, and high energy levels. EDM typically runs 120-150 BPM. Listeners enjoy EDM for parties, workouts, and high-energy activities. The genre emphasizes rhythm and physical movement over lyrical content."
+  },
+  {
+    "id": "genre_jazz",
+    "category": "genre",
+    "title": "Jazz",
+    "content": "Jazz emphasizes improvisation, complex harmonies, and swing rhythms. It features instruments like saxophone, trumpet, piano, and upright bass. Jazz tempos vary widely from 60-200 BPM. Jazz listeners typically appreciate musical sophistication, spontaneity, and emotional depth. Jazz works well for relaxation, dining, and intellectual engagement."
+  },
+  {
+    "id": "genre_blues",
+    "category": "genre",
+    "title": "Blues",
+    "content": "Blues music is rooted in African American musical traditions featuring the twelve-bar blues progression, bent notes, and call-and-response patterns. It typically uses guitar, harmonica, and piano. Blues tempos range from 60-120 BPM. Blues listeners connect with raw emotional expression, storytelling, and musical authenticity. Blues is ideal for reflective, melancholic, or introspective moods."
+  },
+  {
+    "id": "genre_classical",
+    "category": "genre",
+    "title": "Classical Music",
+    "content": "Classical music spans centuries of orchestral and chamber compositions. It features complex arrangements, dynamic range, and formal structure. Tempos vary widely. Classical listeners value compositional sophistication, acoustic beauty, and emotional depth. Classical works well for concentration, relaxation, and contemplation."
+  },
+  {
+    "id": "genre_hiphop",
+    "category": "genre",
+    "title": "Hip-Hop",
+    "content": "Hip-hop combines rhythmic vocal delivery (rapping) over beat-driven production. It features samples, drum machines, and bass-heavy mixes. Tempos typically range 85-115 BPM. Hip-hop listeners value lyrical skill, rhythmic flow, and cultural expression. It works well for energizing, self-expression, and social settings."
+  },
+  {
+    "id": "genre_ambient",
+    "category": "genre",
+    "title": "Ambient Music",
+    "content": "Ambient music creates atmospheric soundscapes with slow evolution and minimal rhythmic structure. It uses synthesizers, field recordings, and reverb-heavy textures. Ambient is designed to be both listenable and ignorable, filling a space rather than demanding attention. It works well for meditation, sleep, deep focus, and creating calm environments."
+  },
+  {
+    "id": "genre_folk",
+    "category": "genre",
+    "title": "Folk Music",
+    "content": "Folk music emphasizes acoustic instruments, storytelling, and cultural traditions. It features guitar, banjo, fiddle, and natural vocal styles. Folk tempos are moderate, typically 80-120 BPM. Folk listeners value authenticity, narrative, and simplicity. Folk is ideal for campfires, road trips, and reflective moments."
+  },
+  {
+    "id": "genre_metal",
+    "category": "genre",
+    "title": "Metal",
+    "content": "Metal music features heavily distorted guitars, aggressive drumming, and intense vocals. It pushes tempo and energy to extremes, often exceeding 160 BPM. Metal listeners value technical skill, power, and cathartic intensity. Metal works for workouts, stress release, and high-energy activities."
+  },
+  {
+    "id": "genre_rnb",
+    "category": "genre",
+    "title": "R&B",
+    "content": "R&B (Rhythm and Blues) blends soulful vocals with contemporary production, featuring smooth melodies and groove-oriented rhythms. Tempos typically range 70-110 BPM. R&B listeners appreciate vocal artistry, emotional warmth, and romantic atmosphere. It works well for evening listening, romance, and unwinding."
+  },
+  {
+    "id": "genre_synthwave",
+    "category": "genre",
+    "title": "Synthwave",
+    "content": "Synthwave draws from 1980s electronic music with retro synthesizers, arpeggiated melodies, and cinematic atmosphere. Tempos typically range 100-120 BPM. Synthwave creates a nostalgic, futuristic mood that works well for night drives, creative work, and gaming."
+  },
+  {
+    "id": "genre_country",
+    "category": "genre",
+    "title": "Country Music",
+    "content": "Country music features storytelling lyrics, acoustic and steel guitars, and themes of rural life and relationships. Tempos typically range 80-130 BPM. Country listeners value narrative songwriting, vocal twang, and emotional sincerity. Country works well for relaxed gatherings and road trips."
+  },
+  {
+    "id": "genre_electronic",
+    "category": "genre",
+    "title": "Electronic Music",
+    "content": "Electronic music is a broad category encompassing any music primarily produced with electronic instruments and technology. It includes subgenres from ambient to techno. Electronic music listeners appreciate sonic experimentation, production quality, and innovative sound design."
+  },
+  {
+    "id": "genre_indie_pop",
+    "category": "genre",
+    "title": "Indie Pop",
+    "content": "Indie pop combines the melodic sensibility of pop with independent production aesthetics. It features jangly guitars, synths, and introspective lyrics. Tempos are moderate, typically 100-130 BPM. Indie pop listeners value authenticity, subtle production, and emotional nuance. It works well for casual listening and creative activities."
+  }
+]

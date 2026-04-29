@@ -1,0 +1,38 @@
+[
+  {
+    "id": "context_study",
+    "category": "context",
+    "title": "Studying and Focus Work",
+    "content": "For studying, recommend music with low-to-no lyrics, consistent dynamics, and moderate tempo (70-90 BPM). Lo-fi hip hop, ambient, and classical are proven focus aids. Avoid songs with sudden drops, loud vocals, or high danceability — they pull attention. Energy should stay in the 0.3-0.5 range. Acousticness above 0.6 often works well for study sessions."
+  },
+  {
+    "id": "context_workout",
+    "category": "context",
+    "title": "Workouts and Exercise",
+    "content": "For workouts, prioritize high energy (0.8+), fast tempo (120-160 BPM), and strong rhythmic drive. EDM, pop, hip-hop, and rock are top workout genres. High danceability helps maintain exercise rhythm. Research shows music between 120-140 BPM optimally synchronizes with cardiovascular exercise. Motivational lyrics and buildups/drops can boost performance."
+  },
+  {
+    "id": "context_commute",
+    "category": "context",
+    "title": "Commuting and Driving",
+    "content": "For commuting, match energy to the drive context — upbeat pop and rock for morning commutes, synthwave and indie for evening drives. Mid-to-high energy (0.5-0.8) works best. Avoid extremely calming music that could reduce alertness. Good driving music has consistent energy without jarring transitions. Singable songs enhance the driving experience."
+  },
+  {
+    "id": "context_sleep",
+    "category": "context",
+    "title": "Sleep and Wind-Down",
+    "content": "For sleep, recommend very low energy (below 0.3), high acousticness, and slow tempo (under 70 BPM). Ambient, classical, and soft folk work best. Avoid any percussive or rhythmic elements that could stimulate alertness. Gradual fading and minimal dynamic range help ease the listener into sleep."
+  },
+  {
+    "id": "context_social",
+    "category": "context",
+    "title": "Social Gatherings and Parties",
+    "content": "For social settings, prioritize high danceability (0.7+), moderate-to-high energy, and familiar genres. Pop, EDM, hip-hop, and R&B are crowd-pleasers. Avoid niche or abrasive genres that may alienate guests. High valence creates positive social energy. A good party playlist mixes tempos but keeps energy consistently above 0.6."
+  },
+  {
+    "id": "context_creative",
+    "category": "context",
+    "title": "Creative Work and Art",
+    "content": "For creative work, recommend atmospheric music with moderate energy and interesting textures. Ambient electronic, indie, jazz, and synthwave stimulate creativity without distraction. Mid-range valence allows emotional openness. Avoid highly structured pop that may constrain thinking. Instrumental tracks or songs in unfamiliar languages prevent lyrical distraction."
+  }
+]

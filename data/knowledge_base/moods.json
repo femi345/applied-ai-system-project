@@ -1,0 +1,50 @@
+[
+  {
+    "id": "mood_happy",
+    "category": "mood",
+    "title": "Happy / Uplifting Music",
+    "content": "Happy music features major keys, bright timbres, and upbeat tempos. High valence scores (0.7+) correlate with perceived happiness. Uplifting music increases dopamine release and is effective for improving mood, motivation, and social energy. Pair with high-energy pop, indie pop, or EDM for maximum effect. Listeners seeking happy music often want singable melodies and positive lyrical themes."
+  },
+  {
+    "id": "mood_chill",
+    "category": "mood",
+    "title": "Chill / Relaxed Music",
+    "content": "Chill music prioritizes low energy (0.2-0.5), moderate valence, and smooth textures. Lo-fi, ambient, and soft jazz are common chill genres. Chill music activates the parasympathetic nervous system, reducing heart rate and stress hormones. It works best for studying, unwinding after work, and creating calm environments. Acoustic instruments and warm analog sounds enhance the chill effect."
+  },
+  {
+    "id": "mood_intense",
+    "category": "mood",
+    "title": "Intense / Energetic Music",
+    "content": "Intense music features high energy (0.8+), driving rhythms, and powerful dynamics. Rock, metal, and aggressive EDM deliver intensity through distortion, fast tempos, and dense arrangements. Intense music triggers adrenaline and is effective for workouts, competitive activities, and emotional catharsis. Listeners seeking intensity want to feel physically activated by the music."
+  },
+  {
+    "id": "mood_sad",
+    "category": "mood",
+    "title": "Sad / Melancholic Music",
+    "content": "Sad music uses minor keys, slow tempos, and sparse arrangements to evoke melancholy. Low valence (below 0.4) and moderate-to-low energy characterize this mood. Research shows sad music can be pleasurable through emotional catharsis and empathy. Blues, acoustic ballads, and ambient works excel at this mood. Listeners seeking sad music often want emotional processing and introspection."
+  },
+  {
+    "id": "mood_focused",
+    "category": "mood",
+    "title": "Focused / Concentration Music",
+    "content": "Focus music minimizes lyrical distraction while maintaining gentle rhythmic drive. Energy levels sit in the 0.3-0.6 range. Lo-fi, ambient electronic, and classical are popular focus genres. Effective focus music has consistent dynamics without sudden changes that break concentration. Repetitive patterns and moderate complexity help sustain flow states for extended work sessions."
+  },
+  {
+    "id": "mood_romantic",
+    "category": "mood",
+    "title": "Romantic Music",
+    "content": "Romantic music features smooth melodies, warm harmonies, and intimate production. R&B, jazz ballads, and soft pop are classic romantic genres. Moderate energy (0.4-0.6), high valence, and lush arrangements create romantic atmosphere. Romantic music enhances emotional connection and is ideal for dates, evenings, and intimate settings."
+  },
+  {
+    "id": "mood_moody",
+    "category": "mood",
+    "title": "Moody / Atmospheric Music",
+    "content": "Moody music creates brooding, introspective atmospheres with mid-range energy and lower valence. Synthwave, trip-hop, and dark pop excel at this mood. Moody music uses reverb, minor keys, and cinematic textures to evoke contemplation. It suits night drives, creative work, and solitary reflection."
+  },
+  {
+    "id": "mood_relaxed",
+    "category": "mood",
+    "title": "Relaxed / Easy-Going Music",
+    "content": "Relaxed music sits between chill and happy — moderate valence, low-to-moderate energy, and gentle rhythms. Jazz, folk, country, and classical are common relaxed genres. Relaxed music doesn't demand attention but remains engaging. It works for weekend mornings, cooking, reading, and casual social settings."
+  }
+]

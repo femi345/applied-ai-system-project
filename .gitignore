@@ -18,3 +18,7 @@ venv/
 CLAUDE.md
 NOTES.md
 .claude/
+.impeccable.md
+
+# Environment
+.env
